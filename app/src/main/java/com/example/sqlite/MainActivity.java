@@ -67,26 +67,15 @@ public class MainActivity extends AppCompatActivity {
                 DatosUsuario.put("UbicacionProducto", ubicacion);
                 BaseDatos.insert("Inventario_Bodega", null, DatosUsuario);
                 Toast.makeText(this, "Producto registrado exitosamente", Toast.LENGTH_SHORT).show();
+                BaseDatos.close();
+                ID.setText("");
+                Nombre.setText("");
+                Categoria.setSelection(0);
+                Cantidad.setText("");
+                Precio.setText("");
+                Ubicacion.setSelection(0);
+                BaseDatos.close();
             }
-            fila.close();
-            BaseDatos.close();
-            ContentValues DatosUsuario = new ContentValues();
-            DatosUsuario.put("ID", IDproducto);
-            DatosUsuario.put("NombreProducto", NombreProducto);
-            DatosUsuario.put("CategoriaProducto", CategoriaS);
-            DatosUsuario.put("CantidadProducto", cantidad);
-            DatosUsuario.put("PrecioProducto", precio);
-            DatosUsuario.put("UbicacionProducto", ubicacion);
-            BaseDatos.insert("Inventario_Bodega", null, DatosUsuario);
-            BaseDatos.close();
-            ID.setText("");
-            Nombre.setText("");
-            Categoria.setSelection(0);
-            Cantidad.setText("");
-            Precio.setText("");
-            Ubicacion.setSelection(0);
-            Toast.makeText(this,"Producto registrado exitosamente", Toast.LENGTH_SHORT).show();
-            BaseDatos.close();
         } else {
             Toast.makeText(this,"Debes completar toda la informacion", Toast.LENGTH_SHORT).show();
             BaseDatos.close();
